@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLaptop, FaMobileAlt, FaPrinter, FaCodeBranch, FaBook, FaFilePowerpoint, FaLightbulb, FaWind } from 'react-icons/fa';
+import { FaLaptop, FaMobileAlt, FaPrint, FaCodeBranch, FaBook, FaFilePowerpoint, FaLightbulb, FaWind } from 'react-icons/fa';
 
 /**
  * Services Component - Grid de servicios
@@ -21,7 +21,7 @@ const Services = () => {
     },
     {
       category: 'Tecnología',
-      icon: FaPrinter,
+      icon: FaPrint,
       title: 'Reparación de Impresoras',
       description: 'Servicio especializado en configuración y reparación de impresoras.'
     },

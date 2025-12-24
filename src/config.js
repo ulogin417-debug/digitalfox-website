@@ -41,7 +41,7 @@ export const SERVICES = [
   },
   {
     category: 'Tecnología',
-    icon: 'FaPrinter',
+    icon: 'FaPrint',
     title: 'Reparación de Impresoras',
     description: 'Servicio especializado en configuración y reparación de impresoras.',
   },
