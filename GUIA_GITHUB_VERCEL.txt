@@ -1,0 +1,152 @@
+📋 GUÍA PASO A PASO: SUBIR A GITHUB Y DESPLEGAR EN VERCEL
+═════════════════════════════════════════════════════════════════════════════
+
+SIN CLI — Solo interfaz web. Aprox. 10 minutos totales.
+
+═════════════════════════════════════════════════════════════════════════════
+
+PARTE 1: SUBIR ZIP A GITHUB (5 minutos)
+─────────────────────────────────────────────────────────────────────────────
+
+1. Abre https://github.com e inicia sesión con tu cuenta.
+
+2. Busca el repositorio que ya creaste: "digitalfox-website"
+   (O si no lo hiciste: New → Repository → nombre: "digitalfox-website" → Create)
+
+3. Una vez en la página del repo, verás un botón verde "Code" 
+   ↓ haz clic en "Add file" (está al lado derecho, arriba de los archivos).
+
+4. Selecciona "Upload files"
+
+5. Se abrirá una ventana para arrastrar/seleccionar archivos.
+   OPCIÓN A - Arrastrar y soltar (más rápido):
+     • Abre el Explorador de archivos → ve a C:\Users\ACER2025\
+     • Busca la carpeta descomprimida: "digitalfox-website-upload"
+     • Arrastra TODA esa carpeta a la ventana de GitHub
+
+   OPCIÓN B - Selector de archivos:
+     • Haz clic en "choose your files"
+     • Navega a "digitalfox-website-upload"
+     • Selecciona TODO (Ctrl+A)
+     • Haz clic en Abrir
+
+6. GitHub mostrará la lista de archivos a cargar. ESPERA a que termine
+   (verás un % o una barra de progreso).
+
+7. En la parte inferior, en "Commit changes":
+   • Message: escribe "Initial commit: DigitalFox website with config"
+   • Selecciona "Commit directly to the main branch"
+
+8. Haz clic en "Commit changes"
+
+✅ ¡LISTO! Ahora tus archivos están en GitHub.
+
+Verifica: 
+  • Recarga la página del repo (F5)
+  • Deberías ver carpetas: "public/", "src/", y archivos como "package.json", "README.md"
+
+═════════════════════════════════════════════════════════════════════════════
+
+PARTE 2: DESPLEGAR EN VERCEL (5 minutos)
+─────────────────────────────────────────────────────────────────────────────
+
+1. Abre https://vercel.com e inicia sesión con tu cuenta.
+
+2. Haz clic en "New Project" (botón azul arriba a la derecha)
+
+3. Selecciona "Import Git Repository"
+
+4. Se abrirá un diálogo para conectar GitHub (si no lo hiciste):
+   • Haz clic en "Select a Git Provider" → "GitHub"
+   • GitHub te pedirá confirmar acceso → "Authorize Vercel"
+   ✅ Listo, conectado.
+
+5. Busca y selecciona tu repositorio "digitalfox-website"
+   (Si no aparece, haz clic en "Refresh" o "Search for a repository")
+
+6. Vercel mostrará la página "Import Git Repository":
+   • Project Name: "digitalfox-website" (o el que prefieras)
+   • Framework: "Vite" (o "Other" si no lo detecta)
+   • Root Directory: "/" (déjalo como está)
+
+7. Desplázate hacia abajo y revisa "Build and Output Settings":
+   • Build Command: npm run build
+   • Output Directory: dist
+   ✅ Estos valores ya están correctos gracias a nuestro vercel.json
+
+8. Haz clic en "Deploy"
+
+9. ESPERA. Vercel empezará a instalar, buildar y desplegar.
+   Verás una barra de progreso y logs de ejecución.
+
+   Tiempo aproximado: 1-3 minutos (primer deploy suele ser más lento)
+
+10. ¡ÉXITO! Vercel mostrará:
+    • "Congratulations! Your project has been successfully deployed"
+    • Una URL como: https://digitalfox-website-XXX.vercel.app
+
+11. Haz clic en esa URL para ver tu web en vivo. 🎉
+
+═════════════════════════════════════════════════════════════════════════════
+
+SI ALGO FALLA EN VERCEL
+─────────────────────────────────────────────────────────────────────────────
+
+Error común: "npm install failed" o "build command failed"
+
+Solución:
+  1. En Vercel, ve a tu proyecto → Deployments → el deployment fallido
+  2. Haz clic en "View Build Logs"
+  3. Lee el error (busca "ERROR" o "FAILED")
+  4. Causa típica: falta instalar dependencias. Vercel debería hacerlo auto.
+  5. Si persiste, dime el error exacto y lo resolvemos.
+
+Si el build es exitoso pero la web no carga:
+  1. Verifica en browser (F12 Console) si hay errores JavaScript
+  2. Revisa que public/logo.png existe en GitHub
+  3. Verifica que src/config.js tiene los datos correctos
+
+═════════════════════════════════════════════════════════════════════════════
+
+RESUMEN FINAL
+─────────────────────────────────────────────────────────────────────────────
+
+✅ Proyecto completado con:
+   • Datos actualizados: +595 991 836 168, digitalfoxjym@gmail.com, Instagram
+   • Logo en public/logo.png
+   • vercel.json configurado para output "dist"
+   • Todos los componentes y animaciones listos
+
+✅ Subido a GitHub: repositorio creado y archivos en main
+
+✅ Desplegado en Vercel: URL pública en vivo
+
+═════════════════════════════════════════════════════════════════════════════
+
+PRÓXIMOS PASOS (OPCIONAL, DESPUÉS DEL DEPLOY)
+─────────────────────────────────────────────────────────────────────────────
+
+1. Reemplazar imágenes del portfolio:
+   • Edita src/components/Portfolio.jsx
+   • Cambia los URLs de placeholder por tus imágenes reales
+   • Haz push a GitHub → Vercel redeploy automático
+
+2. Agregar Facebook cuando lo tengas:
+   • Edita src/config.js
+   • Reemplaza facebook: '' por facebook: 'https://facebook.com/...'
+   • Haz push → automático
+
+3. Monitorizar:
+   • Ve a Vercel Dashboard → tu proyecto → Analytics
+   • Verás visitas, rendimiento, errores
+
+═════════════════════════════════════════════════════════════════════════════
+
+¿PREGUNTAS O PROBLEMAS?
+─────────────────────────────────────────────────────────────────────────────
+
+Pega aquí cualquier error que veas o screenshot, y te ayudo a resolverlo.
+
+═════════════════════════════════════════════════════════════════════════════
+
+¡VAMOS! Sigue los pasos y en 10 minutos tu web estará en vivo. 🚀
