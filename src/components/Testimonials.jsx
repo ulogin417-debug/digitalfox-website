@@ -14,7 +14,7 @@ const Testimonials = () => {
       role: 'Estudiante',
       content: 'Excelente servicio en mi proyecto universitario. El equipo es muy profesional y dedicado.',
       rating: 5,
-      avatar: 'https://picsum.photos/80/80?random=1',
+      avatar: 'https://placeholder.co/80x80/007BFF/FFFFFF?text=CM',
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const Testimonials = () => {
       role: 'Homeowner',
       content: 'Instalaron el aire acondicionado perfectamente. Muy recomendado, profesionales y puntuales.',
       rating: 5,
-      avatar: 'https://picsum.photos/80/80?random=2',
+      avatar: 'https://placeholder.co/80x80/007BFF/FFFFFF?text=ML',
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const Testimonials = () => {
       role: 'Empresario',
       content: 'Repararon mi laptop en tiempo récord. Servicio de calidad a precios justos.',
       rating: 4,
-      avatar: 'https://picsum.photos/80/80?random=3',
+      avatar: 'https://placeholder.co/80x80/007BFF/FFFFFF?text=JP',
     },
     {
       id: 4,
@@ -38,7 +38,7 @@ const Testimonials = () => {
       role: 'Profesional',
       content: 'Diseñaron una presentación increíble para mi pitch de negocios. Muy creativo el equipo.',
       rating: 5,
-      avatar: 'https://picsum.photos/80/80?random=4',
+      avatar: 'https://placeholder.co/80x80/007BFF/FFFFFF?text=AG',
     },
   ];
 
