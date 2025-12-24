@@ -31,7 +31,7 @@ const Portfolio = () => {
       title: 'Reparación de Celulares',
       category: 'Tecnología',
       description: 'Cambio de pantalla y batería',
-      image: '/images/portafolio/INSTALACIONA.jpg',
+      image: '/images/portafolio/INSTALACIONAA.jpg',
     },
     {
       id: 5,
