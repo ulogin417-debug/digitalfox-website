@@ -1,8 +1,8 @@
 import React from 'react';
-import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaWhatsapp, FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
 
 /**
- * Footer Component - Pie de página
+ * Footer Component - Pie de página con información completa
  */
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,12 +11,13 @@ const Footer = () => {
     { label: 'Inicio', href: '#home' },
     { label: 'Servicios', href: '#services' },
     { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Consejos', href: '#blog' },
     { label: 'Contacto', href: '#contact' },
   ];
 
   const services = [
     'Reparación de Computadoras',
-    'Proyectos Digitales',
+    'Proyectos Web y Digitales',
     'Instalaciones Eléctricas',
     'Aire Acondicionado',
   ];
@@ -28,25 +29,28 @@ const Footer = () => {
           {/* Logo y descripción */}
           <div>
             <a href="#home" className="text-2xl font-bold mb-4 block">
-              <span className="text-primary">Digital</span>
+              <span className="text-accent">Digital</span>
               <span className="text-white">Fox</span>
             </a>
-            <p className="text-gray-400 text-sm">
-              Soluciones profesionales en tecnología, digital y hogar. Tu confianza, nuestra excelencia.
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Soluciones profesionales en tecnología, digital y hogar. 
+              Tu confianza es nuestra prioridad. Expertos con más de 10 años de experiencia.
             </p>
           </div>
 
           {/* Enlaces rápidos */}
           <div>
-            <h4 className="text-white font-bold mb-4">Enlaces Rápidos</h4>
+            <h4 className="text-white font-bold mb-4 flex items-center gap-2">
+              <span className="text-accent">●</span> Enlaces Rápidos
+            </h4>
             <ul className="space-y-2">
               {quickLinks.map(link => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-primary transition duration-300"
+                    className="text-gray-400 hover:text-accent transition duration-300 text-sm"
                   >
-                    {link.label}
+                    → {link.label}
                   </a>
                 </li>
               ))}
@@ -55,41 +59,70 @@ const Footer = () => {
 
           {/* Servicios */}
           <div>
-            <h4 className="text-white font-bold mb-4">Servicios</h4>
+            <h4 className="text-white font-bold mb-4 flex items-center gap-2">
+              <span className="text-accent">●</span> Servicios Principales
+            </h4>
             <ul className="space-y-2">
               {services.map(service => (
                 <li key={service}>
-                  <span className="text-gray-400 text-sm">{service}</span>
+                  <span className="text-gray-400 text-sm">✓ {service}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Redes sociales */}
+          {/* Contacto directo */}
           <div>
-            <h4 className="text-white font-bold mb-4">Síguenos</h4>
-            <div className="flex gap-3">
+            <h4 className="text-white font-bold mb-4 flex items-center gap-2">
+              <span className="text-accent">●</span> Contacto Directo
+            </h4>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center gap-2 text-gray-400 hover:text-accent transition">
+                <FaWhatsapp className="text-accent" />
+                <a href="https://wa.me/595991836168" target="_blank" rel="noopener noreferrer">
+                  +595 991 836 168
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-gray-400 hover:text-accent transition">
+                <FaEnvelope className="text-accent" />
+                <a href="mailto:digitalfoxjym@gmail.com">
+                  digitalfoxjym@gmail.com
+                </a>
+              </div>
+              <div className="flex items-start gap-2 text-gray-400">
+                <FaMapMarkerAlt className="text-accent mt-1 flex-shrink-0" />
+                <a href="https://maps.app.goo.gl/ovnRoq5qik88Nh8D7" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition">
+                  Asunción, Paraguay
+                </a>
+              </div>
+            </div>
+
+            {/* Redes sociales */}
+            <div className="flex gap-3 mt-4">
               <a
-                href="#"
+                href="https://www.instagram.com/digitalfoxjym?igsh=MXZteGM5Mjd0dDJ4bQ=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-dark hover:bg-primary text-white p-3 rounded-full transition duration-300 transform hover:scale-110"
+                className="bg-accent/20 hover:bg-accent text-accent hover:text-white p-3 rounded-full transition duration-300 transform hover:scale-110"
+                title="Instagram"
               >
                 <FaInstagram size={18} />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-dark hover:bg-primary text-white p-3 rounded-full transition duration-300 transform hover:scale-110"
+                className="bg-accent/20 hover:bg-accent text-accent hover:text-white p-3 rounded-full transition duration-300 transform hover:scale-110"
+                title="Facebook"
               >
                 <FaFacebook size={18} />
               </a>
               <a
-                href="https://wa.me/595991836168"
+                href="https://wa.me/595991836168?text=Hola%2C%20vengo%20de%20tu%20web%20DigitalFox"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-dark hover:bg-primary text-white p-3 rounded-full transition duration-300 transform hover:scale-110"
+                className="bg-accent/20 hover:bg-accent text-accent hover:text-white p-3 rounded-full transition duration-300 transform hover:scale-110"
+                title="WhatsApp"
               >
                 <FaWhatsapp size={18} />
               </a>
@@ -99,9 +132,16 @@ const Footer = () => {
 
         {/* Línea divisora */}
         <div className="border-t border-gray-800 pt-8">
-            <div className="text-center text-gray-400 text-sm">
-            <p>© {currentYear} DigitalFox. Todos los derechos reservados.</p>
-            <p className="mt-2">Diseñado con ❤️ por DigitalFox Team</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-gray-400 text-sm">
+            <div>
+              <p>© {currentYear} DigitalFox. Todos los derechos reservados.</p>
+            </div>
+            <div>
+              <p>Respuesta garantizada en menos de 24 horas</p>
+            </div>
+            <div>
+              <p>Diseñado con ❤️ por <span className="text-accent font-semibold">DigitalFox Team</span></p>
+            </div>
           </div>
         </div>
       </div>
