@@ -11,49 +11,49 @@ const Services = () => {
       category: 'Tecnología',
       icon: FaLaptop,
       title: 'Reparación de Computadoras',
-      description: 'Diagnóstico y reparación profesional de notebooks y computadoras de escritorio.'
+      description: 'Diagnóstico profesional, reemplazo de HDD por SSD, limpieza térmica. Resolvemos problemas de rendimiento rápidamente.'
     },
     {
       category: 'Tecnología',
       icon: FaMobileAlt,
       title: 'Reparación de Celulares',
-      description: 'Reparación y mantenimiento de dispositivos móviles con piezas de calidad.'
+      description: 'Cambio de pantalla, batería, componentes internos. Diagnóstico gratis. Garantía 30 días en repuestos.'
     },
     {
       category: 'Tecnología',
       icon: FaPrint,
-      title: 'Reparación de Impresoras',
-      description: 'Servicio especializado en configuración y reparación de impresoras.'
+      title: 'Servicio Técnico General',
+      description: 'Reparación de impresoras, equipos periféricos y más. Mantenimiento preventivo para mayor durabilidad.'
     },
     {
       category: 'Digital',
       icon: FaCodeBranch,
-      title: 'Proyectos Escolares',
-      description: 'Asistencia en proyectos prácticos escolares y universitarios.'
+      title: 'Proyectos Escolares y Universitarios',
+      description: 'Asistencia profesional en proyectos prácticos, trabajos colaborativos y entregas de calidad garantizada.'
     },
     {
       category: 'Digital',
       icon: FaBook,
-      title: 'Correcciones y Trabajos',
-      description: 'Revisión y corrección de trabajos académicos y profesionales.'
+      title: 'Correcciones y Edición',
+      description: 'Revisión de contenido, corrección ortográfica, mejora de estructura y presentación de trabajos académicos.'
     },
     {
       category: 'Digital',
       icon: FaFilePowerpoint,
-      title: 'Diseño de Presentaciones',
-      description: 'Creación de presentaciones profesionales en PowerPoint y más.'
+      title: 'Diseño Gráfico y Presentaciones',
+      description: 'Presentaciones profesionales, infografías atractivas, diseño multimedia personalizado para impactar.'
     },
     {
       category: 'Hogar',
       icon: FaLightbulb,
       title: 'Electricidad Domiciliaria',
-      description: 'Instalación y reparación de sistemas eléctricos residenciales.'
+      description: 'Instalación de circuitos, tomacorrientes, iluminación. Cumplimos normas de seguridad vigentes en el país.'
     },
     {
       category: 'Hogar',
       icon: FaWind,
       title: 'Aire Acondicionado',
-      description: 'Instalación, mantenimiento y reparación de sistemas de climatización.'
+      description: 'Instalación profesional, mantenimiento preventivo, reparaciones. Garantía de 2 años en trabajos de instalación.'
     },
   ];
 
@@ -68,16 +68,16 @@ const Services = () => {
     const Icon = service.icon;
     return (
       <div
-        className="group bg-gray-dark rounded-lg p-6 hover:bg-primary transition duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg cursor-pointer"
+        className="group bg-gray-dark rounded-lg p-6 hover:bg-accent transition duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg cursor-pointer border border-gray-700 hover:border-accent"
         style={{ animationDelay: `${index * 100}ms` }}
       >
         <div className="flex justify-center mb-4">
-          <Icon className="text-4xl text-primary group-hover:text-white transition duration-300" />
+          <Icon className="text-4xl text-accent group-hover:text-white transition duration-300" />
         </div>
         <h3 className="text-xl font-semibold text-white mb-2 text-center group-hover:text-white">
           {service.title}
         </h3>
-        <p className="text-gray-300 text-center text-sm group-hover:text-white transition duration-300">
+        <p className="text-gray-300 text-center text-sm group-hover:text-white transition duration-300 leading-relaxed">
           {service.description}
         </p>
       </div>
@@ -90,18 +90,19 @@ const Services = () => {
         {/* Título */}
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Nuestros <span className="text-primary">Servicios</span>
+            Nuestros <span className="text-accent">Servicios</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Soluciones completas para tus necesidades en tecnología, digital y hogar
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+            Soluciones integrales profesionales en tecnología, digital y hogar. 
+            Expertos con más de 10 años de experiencia en el mercado
           </p>
         </div>
 
         {/* Grid de servicios */}
         {Object.entries(groupedServices).map(([category, items]) => (
           <div key={category} className="mb-12">
-            <h3 className="text-2xl font-bold text-primary mb-6 text-center">
-              {category}
+            <h3 className="text-2xl font-bold text-accent mb-6 text-center flex items-center justify-center gap-2">
+              <span className="text-accent">■</span> {category}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {items.map((service, index) => (

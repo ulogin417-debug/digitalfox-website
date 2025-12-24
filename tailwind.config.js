@@ -7,12 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#007BFF',
+        'primary': '#0066CC',      // Azul tecnológico profesional
+        'accent': '#FF6B35',        // Naranja vibrante para CTAs
         'dark': '#1C1C1C',
         'black': '#000000',
         'white': '#FFFFFF',
         'gray-dark': '#2A2A2A',
         'gray-light': '#F5F5F5',
+        'neutral': '#f3f4f6',       // Gris neutro claro
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],

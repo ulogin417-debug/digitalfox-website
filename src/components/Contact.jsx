@@ -76,21 +76,24 @@ const Contact = () => {
         {/* Título */}
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Ponte en <span className="text-primary">Contacto</span>
+            Ponte en <span className="text-accent">Contacto</span>
           </h2>
-          <p className="text-gray-400 text-lg">
-            ¿Tienes una consulta? Nos encantaría escucharte
+          <p className="text-gray-400 text-lg mb-2">
+            ¿Tienes una consulta o proyecto? Nos encantaría escucharte
           </p>
+          <div className="bg-accent/10 border border-accent rounded-lg py-3 px-4 inline-block mt-4">
+            <p className="text-accent font-semibold">⚡ Respondemos en menos de 24 horas</p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Formulario */}
-          <div className="bg-black rounded-lg p-8 shadow-lg">
+          <div className="bg-black rounded-lg p-8 shadow-lg border border-gray-700">
             <h3 className="text-2xl font-bold text-white mb-6">Envíanos un mensaje</h3>
 
             {submitted && (
-              <div className="mb-6 p-4 bg-green-600 rounded-lg text-white animate-fade-in">
-                ¡Gracias! Tu mensaje ha sido enviado correctamente.
+              <div className="mb-6 p-4 bg-green-600/20 border border-green-500 rounded-lg text-green-400 animate-fade-in font-semibold">
+                ✓ ¡Gracias! Tu mensaje ha sido recibido. Nos contactaremos pronto.
               </div>
             )}
 
@@ -98,7 +101,7 @@ const Contact = () => {
               {/* Nombre */}
               <div>
                 <label htmlFor="name" className="block text-white font-medium mb-2">
-                  Nombre
+                  Nombre completo
                 </label>
                 <input
                   type="text"
@@ -108,7 +111,7 @@ const Contact = () => {
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-lg bg-gray-dark text-white border ${
                     errors.name ? 'border-red-500' : 'border-gray-600'
-                  } focus:border-primary focus:outline-none transition duration-300`}
+                  } focus:border-accent focus:outline-none transition duration-300`}
                   placeholder="Tu nombre"
                 />
                 {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
@@ -127,7 +130,7 @@ const Contact = () => {
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-lg bg-gray-dark text-white border ${
                     errors.email ? 'border-red-500' : 'border-gray-600'
-                  } focus:border-primary focus:outline-none transition duration-300`}
+                  } focus:border-accent focus:outline-none transition duration-300`}
                   placeholder="tu@email.com"
                 />
                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
@@ -146,8 +149,8 @@ const Contact = () => {
                   rows="5"
                   className={`w-full px-4 py-3 rounded-lg bg-gray-dark text-white border ${
                     errors.message ? 'border-red-500' : 'border-gray-600'
-                  } focus:border-primary focus:outline-none transition duration-300 resize-none`}
-                  placeholder="Tu mensaje aquí..."
+                  } focus:border-accent focus:outline-none transition duration-300 resize-none`}
+                  placeholder="Cuéntanos sobre tu proyecto o consulta..."
                 />
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
               </div>
@@ -155,31 +158,31 @@ const Contact = () => {
               {/* Botón enviar */}
               <button
                 type="submit"
-                className="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg"
+                className="w-full bg-accent hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg mt-6"
               >
-                Enviar Mensaje
+                Enviar Mensaje Ahora
               </button>
             </form>
           </div>
 
-          {/* Información de contacto */}
-          <div className="flex flex-col justify-center space-y-8">
+          {/* Información de contacto y Mapa */}
+          <div className="flex flex-col space-y-6">
             {/* Contacto directo */}
-            <div className="bg-black rounded-lg p-8 shadow-lg hover:shadow-2xl transition duration-300">
-              <h3 className="text-2xl font-bold text-white mb-6">Contáctanos directamente</h3>
+            <div className="bg-black rounded-lg p-8 shadow-lg border border-gray-700">
+              <h3 className="text-2xl font-bold text-white mb-6">Información de contacto</h3>
 
               {/* WhatsApp */}
-              <div className="flex items-center gap-4 mb-6 p-4 bg-dark rounded-lg hover:bg-gray-dark transition duration-300 cursor-pointer" onClick={handleWhatsAppClick}>
-                <FaWhatsapp className="text-primary text-3xl" />
+              <div className="flex items-center gap-4 mb-6 p-4 bg-dark rounded-lg hover:bg-gray-dark hover:border-accent border border-transparent transition duration-300 cursor-pointer" onClick={handleWhatsAppClick}>
+                <FaWhatsapp className="text-accent text-3xl" />
                 <div>
-                  <p className="text-gray-400 text-sm">WhatsApp</p>
+                  <p className="text-gray-400 text-sm">WhatsApp (respuesta inmediata)</p>
                   <p className="text-white font-semibold">+595 991 836 168</p>
                 </div>
               </div>
 
               {/* Email */}
-              <a href="mailto:digitalfoxjym@gmail.com" className="flex items-center gap-4 mb-6 p-4 bg-dark rounded-lg hover:bg-gray-dark transition duration-300">
-                <FaEnvelope className="text-primary text-3xl" />
+              <a href="mailto:digitalfoxjym@gmail.com" className="flex items-center gap-4 mb-6 p-4 bg-dark rounded-lg hover:bg-gray-dark hover:border-accent border border-transparent transition duration-300">
+                <FaEnvelope className="text-accent text-3xl" />
                 <div>
                   <p className="text-gray-400 text-sm">Email</p>
                   <p className="text-white font-semibold">digitalfoxjym@gmail.com</p>
@@ -187,8 +190,8 @@ const Contact = () => {
               </a>
 
               {/* Teléfono */}
-              <a href="tel:+595991836168" className="flex items-center gap-4 p-4 bg-dark rounded-lg hover:bg-gray-dark transition duration-300">
-                <FaPhone className="text-primary text-3xl" />
+              <a href="tel:+595991836168" className="flex items-center gap-4 p-4 bg-dark rounded-lg hover:bg-gray-dark hover:border-accent border border-transparent transition duration-300">
+                <FaPhone className="text-accent text-3xl" />
                 <div>
                   <p className="text-gray-400 text-sm">Teléfono</p>
                   <p className="text-white font-semibold">+595 991 836 168</p>
@@ -197,34 +200,51 @@ const Contact = () => {
             </div>
 
             {/* Redes sociales */}
-            <div className="bg-black rounded-lg p-8 shadow-lg">
+            <div className="bg-black rounded-lg p-8 shadow-lg border border-gray-700">
               <h3 className="text-xl font-bold text-white mb-6">Síguenos en redes</h3>
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-wrap">
                 <a
                   href="https://www.instagram.com/digitalfoxjym?igsh=MXZteGM5Mjd0dDJ4bQ=="
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary hover:bg-blue-600 text-white p-4 rounded-full transition duration-300 transform hover:scale-110"
+                  className="bg-accent hover:bg-orange-600 text-white p-4 rounded-full transition duration-300 transform hover:scale-110 shadow-lg"
+                  title="Instagram"
                 >
                   <FaInstagram size={24} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary hover:bg-blue-600 text-white p-4 rounded-full transition duration-300 transform hover:scale-110"
+                  className="bg-accent hover:bg-orange-600 text-white p-4 rounded-full transition duration-300 transform hover:scale-110 shadow-lg"
+                  title="Facebook"
                 >
                   <FaFacebook size={24} />
                 </a>
                 <a
-                  href="https://wa.me/595991836168"
+                  href="https://wa.me/595991836168?text=Hola%2C%20vengo%20de%20tu%20web%20DigitalFox"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary hover:bg-blue-600 text-white p-4 rounded-full transition duration-300 transform hover:scale-110"
+                  className="bg-accent hover:bg-orange-600 text-white p-4 rounded-full transition duration-300 transform hover:scale-110 shadow-lg"
+                  title="WhatsApp"
                 >
                   <FaWhatsapp size={24} />
                 </a>
               </div>
+            </div>
+
+            {/* Google Maps Embed */}
+            <div className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-700">
+              <iframe
+                title="Ubicación DigitalFox"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.8516253498!2d-55.48!3d-25.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9437e8dd4f3d5c1d%3A0x1234567890abcdef!2sAsunci%C3%B3n%2C%20Paraguay!5e0!3m2!1ses!2spy!4v"
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>

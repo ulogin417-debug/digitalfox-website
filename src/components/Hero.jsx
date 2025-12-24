@@ -22,22 +22,37 @@ const Hero = () => {
 
       {/* Contenido */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-          <span className="text-primary">DigitalFox</span>
-          {' – Soluciones rápidas en tecnología, digital y hogar'}
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          Soluciones Tecnológicas, Digitales y de Hogar
+          <br />
+          <span className="text-accent">que puedes confiar</span>
         </h1>
         
-        <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-          Servicio profesional en reparación de computadoras, desarrollo de proyectos, instalaciones eléctricas y más. Tu confianza, nuestra excelencia.
+        <p className="text-lg sm:text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+          En <span className="font-semibold text-primary">DigitalFox</span> ofrecemos servicios profesionales en reparación de computadoras, desarrollo web, instalaciones eléctricas y climatización. 
+          Calidad garantizada, respuesta rápida, precios justos.
         </p>
 
-        {/* CTA Button */}
-        <button
-          onClick={scrollToContact}
-          className="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-600 transition duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg"
-        >
-          Contáctame
-        </button>
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button
+            onClick={scrollToContact}
+            className="bg-accent text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition duration-300 transform hover:scale-105 hover:shadow-2xl shadow-xl"
+          >
+            Solicita tu Presupuesto
+          </button>
+          <button
+            onClick={scrollToContact}
+            className="border-2 border-primary text-primary px-10 py-4 rounded-lg font-bold text-lg hover:bg-primary hover:text-white transition duration-300 transform hover:scale-105"
+          >
+            Contáctanos Ahora
+          </button>
+        </div>
+
+        {/* Beneficio */}
+        <div className="mt-12 text-gray-400 text-sm">
+          <p className="font-semibold text-white mb-2">✓ Respuesta garantizada en menos de 24 horas</p>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
