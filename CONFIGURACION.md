@@ -1,4 +1,4 @@
-# Configuración de DigitalFox
+# Configuración
 
 Este archivo contiene las configuraciones y variables que debes ajustar antes de desplegar.
 
@@ -81,7 +81,7 @@ Checklist de verificación:
 - [ ] Agregar logo en `public/`
 - [ ] Reemplazar proyectos del portfolio
 - [ ] Actualizar colores si es necesario
-- [ ] Cambiar "contacto@digitalfox.com" por tu email real
+- [ ] Cambiar "digitalfoxjym@gmail.com" por tu email real
 - [ ] Revisar texto y descripciones
 - [ ] Probar en mobile y desktop
 - [ ] Probar formulario de contacto

@@ -97,7 +97,7 @@ Animaciones Personalizadas:       8
 1. HEADER (src/components/Header.jsx)
    • Navegación fija
    • Menú responsivo (desktop y mobile)
-   • Logo "DigitalFox"
+  • Logo "DigitalFox"
    • Animaciones hover
    
 2. HERO (src/components/Hero.jsx)

@@ -132,7 +132,7 @@ CAMBIAR ESTOS DATOS (¡No olvides!):
 En src/config.js:
   ✏️  CONTACT_INFO.phone = "+54 9 1234-5678" → TU NÚMERO
   ✏️  CONTACT_INFO.whatsapp = "+5491234567890" → TU WHATSAPP
-  ✏️  CONTACT_INFO.email = "contacto@digitalfox.com" → TU EMAIL
+  ✏️  CONTACT_INFO.email = "digitalfoxjym@gmail.com" → TU EMAIL
 
 En src/components/Contact.jsx:
   ✏️  Línea 68: Número de WhatsApp

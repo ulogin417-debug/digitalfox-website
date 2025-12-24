@@ -228,9 +228,9 @@ Para actualizar los datos de contacto, edita:
 
 ## 🤝 Contribuciones
 
-Para reportar bugs o sugerir mejoras, contáctanos en contacto@digitalfox.com
+Para reportar bugs o sugerir mejoras, contáctanos en digitalfoxjym@gmail.com
 
 ---
 
-**Desarrollado con ❤️ para DigitalFox**
+**Desarrollado con ❤️**
 

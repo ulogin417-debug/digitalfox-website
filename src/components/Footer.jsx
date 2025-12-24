@@ -70,7 +70,7 @@ const Footer = () => {
             <h4 className="text-white font-bold mb-4">Síguenos</h4>
             <div className="flex gap-3">
               <a
-                href="https://www.instagram.com/digitalfoxjym?igsh=MXZteGM5Mjd0dDJ4bQ=="
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-dark hover:bg-primary text-white p-3 rounded-full transition duration-300 transform hover:scale-110"
@@ -99,7 +99,7 @@ const Footer = () => {
 
         {/* Línea divisora */}
         <div className="border-t border-gray-800 pt-8">
-          <div className="text-center text-gray-400 text-sm">
+            <div className="text-center text-gray-400 text-sm">
             <p>© {currentYear} DigitalFox. Todos los derechos reservados.</p>
             <p className="mt-2">Diseñado con ❤️ por DigitalFox Team</p>
           </div>

@@ -1,5 +1,5 @@
-🔧 ESPECIFICACIONES TÉCNICAS - DigitalFox Website
-═════════════════════════════════════════════════════════════════════════════
+🔧 ESPECIFICACIONES TÉCNICAS
+════════════════════════════════════════════════════════════════════════════=
 
 PROYECTO: DigitalFox Website v1.0
 TIPO: Single Page Application (SPA) con React
@@ -509,7 +509,7 @@ Ej: .env.local
 
 VITE_PHONE="+54 9 1234-5678"
 VITE_WHATSAPP="+5491234567890"
-VITE_EMAIL="contacto@digitalfox.com"
+VITE_EMAIL="digitalfoxjym@gmail.com"
 VITE_INSTAGRAM_URL="https://instagram.com/..."
 VITE_FACEBOOK_URL="https://facebook.com/..."
 
