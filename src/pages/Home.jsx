@@ -4,7 +4,6 @@ import Hero from '../components/Hero';
 import Stats from '../components/Stats';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
-import BeforeAfter from '../components/BeforeAfter';
 import Pricing from '../components/Pricing';
 import Guarantees from '../components/Guarantees';
 import Testimonials from '../components/Testimonials';
@@ -23,7 +22,6 @@ const Home = () => {
       <Stats />
       <Services />
       <Portfolio />
-      <BeforeAfter />
       <Pricing />
       <Guarantees />
       <Testimonials />
