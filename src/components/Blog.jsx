@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaLaptop, FaBolt, FaThermometerHalf, FaTools, FaCheckCircle } from 'react-icons/fa';
+import GiscusComments from './GiscusComments';
 
 /**
  * Blog Component - Consejos y tips prácticos para SEO y engagement
@@ -122,6 +123,9 @@ const Blog = () => {
             Consulta Gratis
           </a>
         </div>
+
+        {/* Comentarios (Giscus) */}
+        <GiscusComments />
       </div>
     </section>
   );
