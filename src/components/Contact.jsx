@@ -234,7 +234,7 @@ const Contact = () => {
             <div className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-700">
               <iframe
                 title="Ubicación DigitalFox"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.8516253498!2d-55.48!3d-25.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9437e8dd4f3d5c1d%3A0x1234567890abcdef!2sAsunci%C3%B3n%2C%20Paraguay!5e0!3m2!1ses!2spy!4v"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.9223!2d-55.5037!3d-25.2898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sDigitalFox!2sAsunci%C3%B3n%2C%20Paraguay!5e0!3m2!1ses!2spy!4v1704067200000"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}

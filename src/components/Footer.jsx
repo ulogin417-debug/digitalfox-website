@@ -40,8 +40,8 @@ const Footer = () => {
 
           {/* Enlaces rápidos */}
           <div>
-            <h4 className="text-white font-bold mb-4 flex items-center gap-2">
-              <span className="text-primary">●</span> Enlaces Rápidos
+            <h4 className="text-white font-bold mb-4">
+              Enlaces Rápidos
             </h4>
             <ul className="space-y-2">
               {quickLinks.map(link => (
@@ -59,8 +59,8 @@ const Footer = () => {
 
           {/* Servicios */}
           <div>
-            <h4 className="text-white font-bold mb-4 flex items-center gap-2">
-              <span className="text-primary">●</span> Servicios Principales
+            <h4 className="text-white font-bold mb-4">
+              Servicios Principales
             </h4>
             <ul className="space-y-2">
               {services.map(service => (
@@ -73,8 +73,8 @@ const Footer = () => {
 
           {/* Contacto directo */}
           <div>
-            <h4 className="text-white font-bold mb-4 flex items-center gap-2">
-              <span className="text-primary">●</span> Contacto Directo
+            <h4 className="text-white font-bold mb-4">
+              Contacto Directo
             </h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-2 text-gray-400 hover:text-primary transition">
