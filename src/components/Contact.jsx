@@ -240,7 +240,7 @@ const Contact = () => {
               >
                 <iframe
                   title="Ubicación DigitalFox"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=-55.52,-25.30,-55.50,-25.28&layer=mapnik"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-55.525,-25.295,-55.495,-25.275&layer=mapnik&marker=-25.285,-55.51"
                   width="100%"
                   height="100%"
                   style={{ border: 0, pointerEvents: 'none' }}
