@@ -14,9 +14,9 @@ const Portfolio = () => {
     },
     {
       id: 2,
-      title: 'Sistemas Web y de Escritorio',
+      title: 'Servicios Digitales',
       category: 'Digital',
-      description: 'Aplicación web con React + Node.js. Desarrollo full-stack, base de datos, hosting. Tiempo: 4-8 semanas según complejidad.',
+      description: 'Trabajos y proyectos académicos: presentaciones, infografías, edición multimedia. Entrega rápida y profesional.',
       image: '/images/portafolio/SERVICIOSDIG.webp',
     },
     {
@@ -35,9 +35,9 @@ const Portfolio = () => {
     },
     {
       id: 5,
-      title: 'Servicios Digitales',
+      title: 'Sistemas Web y de Escritorio',
       category: 'Digital',
-      description: 'Trabajos y proyectos académicos: presentaciones, infografías, edición multimedia. Entrega rápida y profesional.',
+      description: 'Aplicación web con React + Node.js. Desarrollo full-stack, base de datos, hosting. Tiempo: 4-8 semanas según complejidad.',
       image: '/images/portafolio/PROYECTOWEB.jpg',
     },
     {
