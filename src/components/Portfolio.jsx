@@ -20,18 +20,18 @@ const Portfolio = () => {
       image: '/images/portafolio/SERVICIOSDIG.webp',
     },
     {
-      id: 6,
+      id: 3,
       title: 'Instalación Eléctrica',
       category: 'Hogar',
       description: 'Trabajos de electricidad domiciliaria: circuitos, tomacorrientes, iluminación. Cumple normas de seguridad vigentes.',
-      image: '/images/portafolio/REPCELL.jpg',
+      image: '/images/portafolio/ELECTRICA.webp',
     },
     {
-      id: 3,
+      id: 4,
       title: 'Instalación Aire Acondicionado',
       category: 'Hogar',
       description: 'Instalación profesional de sistemas de climatización, mantención preventiva, limpieza de filtros. Garantía de 2 años.',
-      image: '/images/portafolio/ELECTRICA.webp',
+      image: '/images/portafolio/INSTALACIONAA.jpg',
     },
     {
       id: 5,
@@ -41,11 +41,11 @@ const Portfolio = () => {
       image: '/images/portafolio/PROYECTOWEB.jpg',
     },
     {
-      id: 4,
+      id: 6,
       title: 'Reparación de Celulares',
       category: 'Tecnología',
       description: 'Cambio de pantalla, batería, botones. Diagnóstico gratuito. Tiempo: 1-2 horas. Garantía 30 días en repuestos.',
-      image: '/images/portafolio/INSTALACIONAA.jpg',
+      image: '/images/portafolio/REPCELL.jpg',
     },
   ];
 
