@@ -7,7 +7,6 @@ import Portfolio from '../components/Portfolio';
 import Pricing from '../components/Pricing';
 import Guarantees from '../components/Guarantees';
 import Testimonials from '../components/Testimonials';
-import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
@@ -25,7 +24,6 @@ const Home = () => {
       <Pricing />
       <Guarantees />
       <Testimonials />
-      <FAQ />
       <Contact />
       <Footer />
     </main>

@@ -27,7 +27,7 @@ const FAQ = () => {
     },
     {
       question: '¿Dónde están ubicados? ¿Hacen servicio a domicilio?',
-      answer: 'Estamos en Asunción, Paraguay. Para trabajos en sitio (instalaciones eléctricas, aire) nos desplazamos. Consulta disponibilidad y costos por WhatsApp.',
+      answer: 'Estamos en San lorenzo, Paraguay. Para trabajos en sitio (instalaciones eléctricas, aire) nos desplazamos. Consulta disponibilidad y costos por WhatsApp.',
     },
   ];
 

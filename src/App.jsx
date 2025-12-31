@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import BlogPage from './pages/BlogPage';
+import FaqPage from './pages/FaqPage';
 import FloatingCTA from './components/FloatingCTA';
 import './index.css';
 
@@ -17,6 +18,8 @@ function App() {
       const hash = window.location.hash.slice(1);
       if (hash === 'blogs') {
         setCurrentPage('blogs');
+      } else if (hash === 'faq') {
+        setCurrentPage('faq');
       } else {
         setCurrentPage('home');
       }
@@ -64,7 +67,13 @@ function App() {
 
   return (
     <>
-      {currentPage === 'blogs' ? <BlogPage /> : <Home />}
+      {currentPage === 'blogs' ? (
+        <BlogPage />
+      ) : currentPage === 'faq' ? (
+        <FaqPage />
+      ) : (
+        <Home />
+      )}
       <FloatingCTA />
     </>
   );
