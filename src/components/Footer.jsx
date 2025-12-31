@@ -11,7 +11,7 @@ const Footer = () => {
     { label: 'Inicio', href: '#home' },
     { label: 'Servicios', href: '#services' },
     { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Consejos', href: '#blog' },
+    { label: 'Blogs', href: '#blogs' },
     { label: 'Contacto', href: '#contact' },
   ];
 
@@ -29,7 +29,7 @@ const Footer = () => {
           {/* Logo y descripción */}
           <div>
             <a href="#home" className="text-2xl font-bold mb-4 block">
-              <span className="text-accent">Digital</span>
+              <span className="text-primary">Digital</span>
               <span className="text-white">Fox</span>
             </a>
             <p className="text-gray-400 text-sm leading-relaxed">
@@ -41,14 +41,14 @@ const Footer = () => {
           {/* Enlaces rápidos */}
           <div>
             <h4 className="text-white font-bold mb-4 flex items-center gap-2">
-              <span className="text-accent">●</span> Enlaces Rápidos
+              <span className="text-primary">●</span> Enlaces Rápidos
             </h4>
             <ul className="space-y-2">
               {quickLinks.map(link => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-accent transition duration-300 text-sm"
+                    className="text-gray-400 hover:text-primary transition duration-300 text-sm"
                   >
                     → {link.label}
                   </a>
@@ -60,7 +60,7 @@ const Footer = () => {
           {/* Servicios */}
           <div>
             <h4 className="text-white font-bold mb-4 flex items-center gap-2">
-              <span className="text-accent">●</span> Servicios Principales
+              <span className="text-primary">●</span> Servicios Principales
             </h4>
             <ul className="space-y-2">
               {services.map(service => (
@@ -74,23 +74,23 @@ const Footer = () => {
           {/* Contacto directo */}
           <div>
             <h4 className="text-white font-bold mb-4 flex items-center gap-2">
-              <span className="text-accent">●</span> Contacto Directo
+              <span className="text-primary">●</span> Contacto Directo
             </h4>
             <div className="space-y-3 text-sm">
-              <div className="flex items-center gap-2 text-gray-400 hover:text-accent transition">
-                <FaWhatsapp className="text-accent" />
+              <div className="flex items-center gap-2 text-gray-400 hover:text-primary transition">
+                <FaWhatsapp className="text-primary" />
                 <a href="https://wa.me/595991836168" target="_blank" rel="noopener noreferrer">
                   +595 991 836 168
                 </a>
               </div>
-              <div className="flex items-center gap-2 text-gray-400 hover:text-accent transition">
-                <FaEnvelope className="text-accent" />
+              <div className="flex items-center gap-2 text-gray-400 hover:text-primary transition">
+                <FaEnvelope className="text-primary" />
                 <a href="mailto:digitalfoxjym@gmail.com">
                   digitalfoxjym@gmail.com
                 </a>
               </div>
               <div className="flex items-start gap-2 text-gray-400">
-                <FaMapMarkerAlt className="text-accent mt-1 flex-shrink-0" />
+                <FaMapMarkerAlt className="text-primary mt-1 flex-shrink-0" />
                 <a href="https://maps.app.goo.gl/ovnRoq5qik88Nh8D7" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition">
                   Asunción, Paraguay
                 </a>
@@ -103,7 +103,7 @@ const Footer = () => {
                 href="https://www.instagram.com/digitalfoxjym?igsh=MXZteGM5Mjd0dDJ4bQ=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-accent/20 hover:bg-accent text-accent hover:text-white p-3 rounded-full transition duration-300 transform hover:scale-110"
+                className="bg-primary/20 hover:bg-primary text-primary hover:text-white p-3 rounded-full transition duration-300 transform hover:scale-110"
                 title="Instagram"
               >
                 <FaInstagram size={18} />
@@ -112,7 +112,7 @@ const Footer = () => {
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-accent/20 hover:bg-accent text-accent hover:text-white p-3 rounded-full transition duration-300 transform hover:scale-110"
+                className="bg-primary/20 hover:bg-primary text-primary hover:text-white p-3 rounded-full transition duration-300 transform hover:scale-110"
                 title="Facebook"
               >
                 <FaFacebook size={18} />
@@ -121,7 +121,7 @@ const Footer = () => {
                 href="https://wa.me/595991836168?text=Hola%2C%20vengo%20de%20tu%20web%20DigitalFox"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-accent/20 hover:bg-accent text-accent hover:text-white p-3 rounded-full transition duration-300 transform hover:scale-110"
+                className="bg-primary/20 hover:bg-primary text-primary hover:text-white p-3 rounded-full transition duration-300 transform hover:scale-110"
                 title="WhatsApp"
               >
                 <FaWhatsapp size={18} />
@@ -140,7 +140,7 @@ const Footer = () => {
               <p>Respuesta garantizada en menos de 24 horas</p>
             </div>
             <div>
-              <p>Diseñado con ❤️ por <span className="text-accent font-semibold">DigitalFox Team</span></p>
+              <p>Diseñado con ❤️ por <span className="text-primary font-semibold">DigitalFox Team</span></p>
             </div>
           </div>
         </div>

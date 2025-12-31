@@ -7,8 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#0066CC',      // Azul tecnológico profesional
-        'accent': '#FF6B35',        // Naranja vibrante para CTAs
+        'primary': '#007BFF',      // Azul original
         'dark': '#1C1C1C',
         'black': '#000000',
         'white': '#FFFFFF',

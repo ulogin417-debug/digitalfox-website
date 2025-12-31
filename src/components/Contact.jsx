@@ -76,14 +76,11 @@ const Contact = () => {
         {/* Título */}
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Ponte en <span className="text-accent">Contacto</span>
+            Ponte en <span className="text-primary">Contacto</span>
           </h2>
           <p className="text-gray-400 text-lg mb-2">
             ¿Tienes una consulta o proyecto? Nos encantaría escucharte
           </p>
-          <div className="bg-accent/10 border border-accent rounded-lg py-3 px-4 inline-block mt-4">
-            <p className="text-accent font-semibold">⚡ Respondemos en menos de 24 horas</p>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -111,7 +108,7 @@ const Contact = () => {
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-lg bg-gray-dark text-white border ${
                     errors.name ? 'border-red-500' : 'border-gray-600'
-                  } focus:border-accent focus:outline-none transition duration-300`}
+                  } focus:border-primary focus:outline-none transition duration-300`}
                   placeholder="Tu nombre"
                 />
                 {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
@@ -130,7 +127,7 @@ const Contact = () => {
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-lg bg-gray-dark text-white border ${
                     errors.email ? 'border-red-500' : 'border-gray-600'
-                  } focus:border-accent focus:outline-none transition duration-300`}
+                  } focus:border-primary focus:outline-none transition duration-300`}
                   placeholder="tu@email.com"
                 />
                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
@@ -149,7 +146,7 @@ const Contact = () => {
                   rows="5"
                   className={`w-full px-4 py-3 rounded-lg bg-gray-dark text-white border ${
                     errors.message ? 'border-red-500' : 'border-gray-600'
-                  } focus:border-accent focus:outline-none transition duration-300 resize-none`}
+                  } focus:border-primary focus:outline-none transition duration-300 resize-none`}
                   placeholder="Cuéntanos sobre tu proyecto o consulta..."
                 />
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
@@ -158,7 +155,7 @@ const Contact = () => {
               {/* Botón enviar */}
               <button
                 type="submit"
-                className="w-full bg-accent hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg mt-6"
+                className="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg mt-6"
               >
                 Enviar Mensaje Ahora
               </button>
@@ -172,8 +169,8 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-white mb-6">Información de contacto</h3>
 
               {/* WhatsApp */}
-              <div className="flex items-center gap-4 mb-6 p-4 bg-dark rounded-lg hover:bg-gray-dark hover:border-accent border border-transparent transition duration-300 cursor-pointer" onClick={handleWhatsAppClick}>
-                <FaWhatsapp className="text-accent text-3xl" />
+              <div className="flex items-center gap-4 mb-6 p-4 bg-dark rounded-lg hover:bg-gray-dark hover:border-primary border border-transparent transition duration-300 cursor-pointer" onClick={handleWhatsAppClick}>
+                <FaWhatsapp className="text-primary text-3xl" />
                 <div>
                   <p className="text-gray-400 text-sm">WhatsApp (respuesta inmediata)</p>
                   <p className="text-white font-semibold">+595 991 836 168</p>

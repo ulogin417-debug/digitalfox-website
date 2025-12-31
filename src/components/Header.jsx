@@ -16,6 +16,7 @@ const Header = () => {
     { label: 'Inicio', href: '#home' },
     { label: 'Servicios', href: '#services' },
     { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Blogs', href: '#blogs' },
     { label: 'Contacto', href: '#contact' },
   ];
 
@@ -26,12 +27,9 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <a href="#home" className="text-2xl font-bold flex items-center gap-1">
-              <span className="text-accent">Digital</span>
+              <span className="text-primary">Digital</span>
               <span className="text-white">Fox</span>
             </a>
-            <span className="text-accent text-xs font-semibold hidden sm:block ml-2 px-2 py-1 bg-accent/10 rounded">
-              Soluciones Confiables
-            </span>
           </div>
 
           {/* Desktop Menu */}
@@ -41,7 +39,7 @@ const Header = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-gray-300 hover:text-accent hover:bg-accent/10 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out"
+                  className="text-gray-300 hover:text-primary hover:bg-primary/10 px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out"
                 >
                   {item.label}
                 </a>
@@ -53,7 +51,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-accent hover:text-white focus:outline-none transition duration-300"
+              className="text-primary hover:text-white focus:outline-none transition duration-300"
               aria-label="Toggle menu"
             >
               {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -69,7 +67,7 @@ const Header = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-gray-300 hover:text-accent hover:bg-accent/10 block px-3 py-2 rounded-md text-base font-medium transition duration-300"
+                  className="text-gray-300 hover:text-primary hover:bg-primary/10 block px-3 py-2 rounded-md text-base font-medium transition duration-300"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}

@@ -68,11 +68,11 @@ const Services = () => {
     const Icon = service.icon;
     return (
       <div
-        className="group bg-gray-dark rounded-lg p-6 hover:bg-accent transition duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg cursor-pointer border border-gray-700 hover:border-accent"
+        className="group bg-gray-dark rounded-lg p-6 hover:bg-primary transition duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg cursor-pointer"
         style={{ animationDelay: `${index * 100}ms` }}
       >
         <div className="flex justify-center mb-4">
-          <Icon className="text-4xl text-accent group-hover:text-white transition duration-300" />
+          <Icon className="text-4xl text-primary group-hover:text-white transition duration-300" />
         </div>
         <h3 className="text-xl font-semibold text-white mb-2 text-center group-hover:text-white">
           {service.title}
@@ -90,7 +90,7 @@ const Services = () => {
         {/* Título */}
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Nuestros <span className="text-accent">Servicios</span>
+            Nuestros <span className="text-primary">Servicios</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-3xl mx-auto">
             Soluciones integrales profesionales en tecnología, digital y hogar. 
@@ -101,8 +101,8 @@ const Services = () => {
         {/* Grid de servicios */}
         {Object.entries(groupedServices).map(([category, items]) => (
           <div key={category} className="mb-12">
-            <h3 className="text-2xl font-bold text-accent mb-6 text-center flex items-center justify-center gap-2">
-              <span className="text-accent">■</span> {category}
+            <h3 className="text-2xl font-bold text-primary mb-6 text-center">
+              {category}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {items.map((service, index) => (

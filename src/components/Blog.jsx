@@ -60,16 +60,16 @@ const Blog = () => {
     const Icon = tip.icon;
     return (
       <div
-        className="group bg-dark rounded-lg p-6 hover:shadow-2xl transition duration-300 transform hover:scale-105 border border-gray-700 hover:border-accent cursor-pointer"
+        className="group bg-dark rounded-lg p-6 hover:shadow-2xl transition duration-300 transform hover:scale-105 border border-gray-700 hover:border-primary cursor-pointer"
         style={{ animationDelay: `${index * 50}ms` }}
       >
         <div className="flex items-start gap-4">
-          <Icon className="text-accent text-3xl flex-shrink-0 mt-1" />
+          <Icon className="text-primary text-3xl flex-shrink-0 mt-1" />
           <div className="flex-1">
-            <span className="inline-block text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full mb-2">
+            <span className="inline-block text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full mb-2">
               {tip.category}
             </span>
-            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-accent transition">
+            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary transition">
               {tip.title}
             </h3>
             <p className="text-gray-400 text-sm mb-4">
@@ -92,7 +92,7 @@ const Blog = () => {
         {/* Título */}
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Centro de <span className="text-accent">Consejos y Tips</span>
+            Centro de <span className="text-primary">Consejos y Tips</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-3xl mx-auto">
             Artículos prácticos para maximizar la vida útil de tus equipos, 
@@ -108,7 +108,7 @@ const Blog = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 text-center bg-gradient-to-r from-accent/10 to-primary/10 rounded-lg p-8 border border-accent/30">
+        <div className="mt-16 text-center bg-gradient-to-r from-primary/10 to-primary/10 rounded-lg p-8 border border-primary/30">
           <h3 className="text-2xl font-bold text-white mb-4">
             ¿Tienes alguna pregunta específica?
           </h3>
@@ -117,7 +117,7 @@ const Blog = () => {
           </p>
           <a
             href="#contact"
-            className="inline-block bg-accent hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-bold transition duration-300 transform hover:scale-105 shadow-lg"
+            className="inline-block bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-bold transition duration-300 transform hover:scale-105 shadow-lg"
           >
             Consulta Gratis
           </a>
