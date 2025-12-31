@@ -231,29 +231,17 @@ const Contact = () => {
             </div>
 
             {/* Google Maps Embed */}
-            <div className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-700">
-              <a
-                href="https://maps.app.goo.gl/NAgJRhfN2P2xZTyK9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full h-64 bg-gray-dark relative group overflow-hidden"
-              >
-                <iframe
-                  title="Ubicación DigitalFox"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=-55.525,-25.295,-55.495,-25.275&layer=mapnik&marker=-25.285,-55.51"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, pointerEvents: 'none' }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition duration-300 flex items-center justify-center">
-                  <span className="text-white font-bold text-center opacity-0 group-hover:opacity-100 transition duration-300">
-                    Haz click para ver en Google Maps
-                  </span>
-                </div>
-              </a>
+            <div className="bg-black rounded-lg overflow-hidden shadow-lg border border-gray-700 h-64">
+              <iframe
+                title="Ubicación DigitalFox"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.842!2d-55.5037!3d-25.2898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sDigitalFox%20Asunci%C3%B3n!2sAsunci%C3%B3n%2C%20Paraguay!5e0!3m2!1ses!2spy!4v1735689600000"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>
