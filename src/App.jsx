@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Home from './pages/Home';
+import About from './pages/About';
 import BlogPage from './pages/BlogPage';
 import FaqPage from './pages/FaqPage';
 import BlogPost from './pages/BlogPost';
@@ -21,6 +22,8 @@ function App() {
       hash = hash.replace(/^\/+/, '');
       if (hash === 'blogs') {
         setCurrentPage('blogs');
+      } else if (hash === 'nosotros') {
+        setCurrentPage('nosotros');
       } else if (hash === 'faq') {
         setCurrentPage('faq');
       } else if (hash.startsWith('blog/')) {
@@ -78,6 +81,8 @@ function App() {
         <BlogPage />
       ) : currentPage === 'faq' ? (
         <FaqPage />
+      ) : currentPage === 'nosotros' ? (
+        <About />
       ) : (
         <Home />
       )}

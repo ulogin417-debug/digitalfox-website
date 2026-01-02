@@ -14,6 +14,7 @@ const Header = () => {
 
   const menuItems = [
     { label: 'Inicio', href: '#home' },
+    { label: 'Nosotros', href: '#nosotros' },
     { label: 'Servicios', href: '#services' },
     { label: 'Portfolio', href: '#portfolio' },
     { label: 'Blogs', href: '#blogs' },
