@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { FaLaptop, FaBolt, FaThermometerHalf, FaTools, FaCheckCircle, FaCode } from 'react-icons/fa';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { BLOG_POSTS } from '../data/blogPosts';
@@ -6,6 +7,9 @@ import { CONTACT_INFO } from '../config';
 
 const BlogPost = ({ slug }) => {
   const post = BLOG_POSTS.find(p => p.slug === slug);
+  
+  // Obtener artículos relacionados (misma categoría, excluyendo el actual)
+  const relatedPosts = post ? BLOG_POSTS.filter(p => p.category === post.category && p.id !== post.id).slice(0, 3) : [];
 
   useEffect(() => {
     if (post) {
@@ -100,7 +104,7 @@ const BlogPost = ({ slug }) => {
     <main className="min-h-screen bg-black font-poppins">
       <Header />
       <div className="max-w-4xl mx-auto px-4 py-16">
-        <article className="bg-dark rounded-lg p-8">
+        <article className="bg-dark rounded-lg p-8 mb-12">
           {post && (
             <img
               src={`/images/og/${post.slug}.png`}
@@ -109,35 +113,96 @@ const BlogPost = ({ slug }) => {
               className="w-full h-64 object-cover rounded-md mb-6"
             />
           )}
-          <div className="mb-4 text-xs text-gray-400">
-            Creado por <strong>{post.author}</strong> · {post.date} · {post.locations.join(', ')}
+          <div className="mb-4 flex flex-wrap gap-4 text-xs text-gray-400">
+            <span><strong>{post.author}</strong></span>
+            <span>·</span>
+            <span>{post.date}</span>
+            <span>·</span>
+            <span>{Math.ceil((post.content?.join(' ').split(' ').length || 0) / 200)} min de lectura</span>
           </div>
-          <h1 className="text-3xl font-bold text-white mb-4">{post.title}</h1>
-          <p className="text-gray-300 mb-6">{post.description}</p>
+          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">{post.title}</h1>
+          <p className="text-gray-300 text-lg mb-6">{post.description}</p>
 
-          <div className="prose prose-invert text-gray-200 mb-6">
+          <div className="prose prose-invert text-gray-200 mb-8 space-y-4">
             {post.content && post.content.map((para, i) => (
-              <p key={i} className="text-sm leading-relaxed">{para}</p>
+              <p key={i} className="text-base leading-relaxed">{para}</p>
             ))}
           </div>
 
-          <div className="text-sm text-gray-400 space-y-2 mb-6">
-            {post.bullets.map((b, i) => (
-              <p key={i}>✓ {b}</p>
-            ))}
+          <div className="bg-dark border border-gray-700 rounded-lg p-6 mb-8">
+            <h3 className="text-white font-bold mb-4">Puntos clave:</h3>
+            <ul className="space-y-2 text-gray-300">
+              {post.bullets.map((b, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">✓</span>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="mt-8">
+          <div className="bg-primary/10 border border-primary/30 rounded-lg p-6">
+            <h3 className="text-white font-bold mb-3">¿Tu equipo presenta alguno de estos problemas?</h3>
+            <p className="text-gray-300 mb-4">Nuestros especialistas están listos para ayudarte. Escríbenos y recibe diagnóstico gratis.</p>
             <a
               href={`https://wa.me/${CONTACT_INFO.whatsapp}?text=${encodeURIComponent(`Hola DigitalFox, necesito ayuda con: ${post.title}`)}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-block bg-primary hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-bold"
+              className="inline-block bg-primary hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-bold transition duration-300"
             >
-              ¿Tu equipo presenta alguno de estos problemas? Escríbenos ahora y recibe diagnóstico gratis
+              Enviar consulta por WhatsApp
             </a>
           </div>
         </article>
+
+        {/* Artículos relacionados */}
+        {relatedPosts.length > 0 && (
+          <section className="mt-16">
+            <h2 className="text-2xl font-bold text-white mb-6">Artículos relacionados</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {relatedPosts.map((p) => {
+                let icon = FaCheckCircle;
+                if (p.category === 'Mantenimiento') icon = FaLaptop;
+                if (p.category === 'Climatización') icon = FaThermometerHalf;
+                if (p.category === 'Seguridad') icon = FaBolt;
+                if (p.category === 'Tecnología') icon = FaTools;
+                if (p.category === 'Diagnóstico') icon = FaCheckCircle;
+                if (p.category === 'Upgrade') icon = FaLaptop;
+                if (p.category === 'Programación y Sistemas Informáticos') icon = FaCode;
+                const Icon = icon;
+
+                return (
+                  <div
+                    key={p.id}
+                    onClick={() => { window.location.hash = `#blog/${p.slug}` }}
+                    className="group bg-dark rounded-lg p-6 border border-gray-700 hover:border-primary cursor-pointer transition duration-300 transform hover:scale-105"
+                  >
+                    <picture>
+                      <source srcSet={`/images/og/${p.slug}-thumb.webp`} type="image/webp" />
+                      <source srcSet={`/images/og/${p.slug}-thumb.png`} type="image/png" />
+                      <img
+                        src={`/images/og/${p.slug}-thumb.png`}
+                        onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = `/images/og/${p.slug}.svg`; }}
+                        alt={p.title}
+                        className="w-full h-32 object-cover rounded-md mb-4"
+                      />
+                    </picture>
+                    <div className="flex items-start gap-3 mb-3">
+                      <Icon className="text-primary text-xl flex-shrink-0 mt-1" />
+                      <span className="inline-block text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded">{p.category}</span>
+                    </div>
+                    <h3 className="text-sm font-bold text-white mb-2 group-hover:text-primary transition line-clamp-2">
+                      {p.title}
+                    </h3>
+                    <a href={`#blog/${p.slug}`} className="text-xs text-primary hover:text-blue-400 font-semibold">
+                      Leer más →
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
       </div>
       <Footer />
     </main>

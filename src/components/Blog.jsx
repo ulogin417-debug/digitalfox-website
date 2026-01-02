@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaLaptop, FaBolt, FaThermometerHalf, FaTools, FaCheckCircle, FaCode, FaServer } from 'react-icons/fa';
+import React, { useState, useMemo } from 'react';
+import { FaLaptop, FaBolt, FaThermometerHalf, FaTools, FaCheckCircle, FaCode, FaServer, FaSearch, FaTimes } from 'react-icons/fa';
 import DisqusComments from './DisqusComments';
 import { BLOG_POSTS } from '../data/blogPosts';
 import { CONTACT_INFO } from '../config';
@@ -8,6 +8,10 @@ import { CONTACT_INFO } from '../config';
  * Blog Component - Consejos y tips prácticos para SEO y engagement
  */
 const Blog = () => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [showAll, setShowAll] = useState(false);
+
   const tips = BLOG_POSTS.map(p => {
     // map category to icon
     let icon = FaCheckCircle;
@@ -21,8 +25,28 @@ const Blog = () => {
     return { ...p, icon };
   });
 
+  // Get unique categories
+  const categories = ['Todos', ...new Set(tips.map(t => t.category))];
+
+  // Filter tips based on category and search
+  const filteredTips = useMemo(() => {
+    return tips.filter(tip => {
+      const matchesCategory = !selectedCategory || selectedCategory === 'Todos' || tip.category === selectedCategory;
+      const matchesSearch = !searchTerm || 
+        tip.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        tip.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        tip.category.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [selectedCategory, searchTerm, tips]);
+
+  // Show limited or all tips
+  const displayedTips = showAll ? filteredTips : filteredTips.slice(0, 6);
+
   const TipCard = ({ tip, index }) => {
     const Icon = tip.icon || FaCheckCircle;
+    const readingTime = Math.ceil((tip.content?.join(' ').split(' ').length || 0) / 200); // aprox 200 palabras por minuto
+    
     return (
       <div
         onClick={() => { window.location.hash = `#blog/${tip.slug}` }}
@@ -52,10 +76,14 @@ const Blog = () => {
               {truncateText(tip.description || (tip.content && tip.content[0]) || '', 140)}
             </p>
 
-            <div className="text-xs text-gray-500 mb-3">
-              <span className="mr-2">Creado por <strong>{tip.author}</strong></span>
-              <span className="mr-2">· {tip.date}</span>
-              <span className="text-gray-400">· {tip.locations && tip.locations.slice(0,2).join(', ')}{tip.locations && tip.locations.length>2?' ...':''}</span>
+            <div className="text-xs text-gray-500 mb-3 flex flex-wrap gap-2 items-center">
+              <span><strong>{tip.author}</strong></span>
+              <span>·</span>
+              <span>{tip.date}</span>
+              {readingTime > 0 && <>
+                <span>·</span>
+                <span>{readingTime} min de lectura</span>
+              </>}
             </div>
 
             <div className="flex items-center gap-3">
@@ -96,12 +124,92 @@ const Blog = () => {
           </p>
         </div>
 
-        {/* Grid de tips */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tips.map((tip, index) => (
-            <TipCard key={tip.id} tip={tip} index={index} />
+        {/* Buscador */}
+        <div className="mb-8 flex gap-4 flex-col sm:flex-row">
+          <div className="flex-1 relative">
+            <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500" />
+            <input
+              type="text"
+              placeholder="Buscar artículos..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 bg-dark border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+            />
+            {searchTerm && (
+              <button
+                onClick={() => setSearchTerm('')}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-white"
+              >
+                <FaTimes />
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Filtros por categoría */}
+        <div className="mb-8 flex flex-wrap gap-2">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(selectedCategory === cat ? null : cat)}
+              className={`px-4 py-2 rounded-full font-semibold text-sm transition duration-200 ${
+                (selectedCategory === cat || (cat === 'Todos' && !selectedCategory))
+                  ? 'bg-primary text-white'
+                  : 'bg-dark border border-gray-700 text-gray-300 hover:border-primary hover:text-primary'
+              }`}
+            >
+              {cat}
+            </button>
           ))}
         </div>
+
+        {/* Conteo de resultados */}
+        {(selectedCategory || searchTerm) && (
+          <div className="mb-6 text-gray-400 text-sm">
+            <span>Se encontraron <strong className="text-primary">{filteredTips.length}</strong> artículo{filteredTips.length !== 1 ? 's' : ''}</span>
+            {searchTerm && (
+              <span> para "{searchTerm}"</span>
+            )}
+          </div>
+        )}
+
+        {/* Grid de tips */}
+        {displayedTips.length > 0 ? (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {displayedTips.map((tip, index) => (
+                <TipCard key={tip.id} tip={tip} index={index} />
+              ))}
+            </div>
+
+            {/* Botón Ver todos/Menos */}
+            {filteredTips.length > 6 && (
+              <div className="text-center mb-12">
+                <button
+                  onClick={() => setShowAll(!showAll)}
+                  className="bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-bold transition duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  {showAll ? 'Ver menos artículos' : `Ver todos (${filteredTips.length})`}
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-gray-400 text-lg">
+              No se encontraron artículos con los filtros seleccionados.
+            </p>
+            <button
+              onClick={() => {
+                setSearchTerm('');
+                setSelectedCategory(null);
+              }}
+              className="mt-4 text-primary hover:text-blue-400 font-semibold"
+            >
+              Limpiar filtros
+            </button>
+          </div>
+        )}
 
         {/* CTA */}
         <div className="mt-16 text-center bg-gradient-to-r from-primary/10 to-primary/10 rounded-lg p-8 border border-primary/30">
