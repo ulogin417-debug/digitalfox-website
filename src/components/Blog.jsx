@@ -1,69 +1,44 @@
 import React from 'react';
-import { FaLaptop, FaBolt, FaThermometerHalf, FaTools, FaCheckCircle } from 'react-icons/fa';
+import { FaLaptop, FaBolt, FaThermometerHalf, FaTools, FaCheckCircle, FaCode, FaServer } from 'react-icons/fa';
 import DisqusComments from './DisqusComments';
+import { BLOG_POSTS } from '../data/blogPosts';
+import { CONTACT_INFO } from '../config';
 
 /**
  * Blog Component - Consejos y tips prácticos para SEO y engagement
  */
 const Blog = () => {
-  const tips = [
-    {
-      id: 1,
-      icon: FaLaptop,
-      title: 'Cómo extender la vida útil de tu computadora',
-      category: 'Mantenimiento',
-      description: 'Descubre los 5 pasos esenciales para mantener tu PC o laptop en perfecto estado y evitar reparaciones costosas.',
-      content: '• Limpia el polvo regularmente • Usa antivirus actualizado • No sobrecargues el disco • Controla la temperatura • Haz backup de tus datos',
-    },
-    {
-      id: 2,
-      icon: FaThermometerHalf,
-      title: 'Guía de mantenimiento de aire acondicionado',
-      category: 'Climatización',
-      description: 'Tips prácticos para que tu aire acondicionado funcione eficientemente y consuma menos energía.',
-      content: '• Limpia los filtros cada 2 semanas • Realiza mantenimiento cada 6 meses • Revisa refrigerante regularmente • Cierra bien las puertas • Usa termostato inteligente',
-    },
-    {
-      id: 3,
-      icon: FaBolt,
-      title: 'Seguridad eléctrica domiciliaria',
-      category: 'Seguridad',
-      description: 'Aprende a identificar riesgos eléctricos y cuándo necesitas ayuda profesional para tu hogar.',
-      content: '• No sobrecargues enchufes • Usa protectores de sobretensión • Instala diferenciales • Revisa cables periódicamente • Contrata profesionales certificados',
-    },
-    {
-      id: 4,
-      icon: FaTools,
-      title: 'Reparación de celular: lo que debes saber',
-      category: 'Tecnología',
-      description: 'Guía completa sobre tipos de daños comunes y cómo prevenirlos.',
-      content: '• Usa protectores de pantalla • Evita caídas con funda • Carga con adaptador original • No expongas al agua • Actualiza software regularmente',
-    },
-    {
-      id: 5,
-      icon: FaCheckCircle,
-      title: 'Señales de que tu PC necesita reparación',
-      category: 'Diagnóstico',
-      description: 'Identifica los síntomas comunes que indican problemas técnicos en tu computadora.',
-      content: '• Ruidos extraños en el disco • Pantalla azul de error • Lentitud extrema • Sobrecalentamiento • Problemas para encender',
-    },
-    {
-      id: 6,
-      icon: FaLaptop,
-      title: 'Actualizaciones importantes para tu SSD',
-      category: 'Upgrade',
-      description: 'Por qué actualizar a SSD es la mejor inversión para tu computadora vieja.',
-      content: '• 5-10x más rápido que HDD • Mejora rendimiento general • Consumo de batería reducido • Mayor durabilidad • Instalación en 1-2 horas',
-    },
-  ];
+  const tips = BLOG_POSTS.map(p => {
+    // map category to icon
+    let icon = FaCheckCircle;
+    if (p.category === 'Mantenimiento') icon = FaLaptop;
+    if (p.category === 'Climatización') icon = FaThermometerHalf;
+    if (p.category === 'Seguridad') icon = FaBolt;
+    if (p.category === 'Tecnología') icon = FaTools;
+    if (p.category === 'Diagnóstico') icon = FaCheckCircle;
+    if (p.category === 'Upgrade') icon = FaLaptop;
+    if (p.category === 'Programación y Sistemas Informáticos') icon = FaCode;
+    return { ...p, icon };
+  });
 
   const TipCard = ({ tip, index }) => {
-    const Icon = tip.icon;
+    const Icon = tip.icon || FaCheckCircle;
     return (
       <div
+        onClick={() => { window.location.hash = `#blog/${tip.slug}` }}
         className="group bg-dark rounded-lg p-6 hover:shadow-2xl transition duration-300 transform hover:scale-105 border border-gray-700 hover:border-primary cursor-pointer"
         style={{ animationDelay: `${index * 50}ms` }}
       >
+        <picture>
+          <source srcSet={`/images/og/${tip.slug}-thumb.webp`} type="image/webp" />
+          <source srcSet={`/images/og/${tip.slug}-thumb.png`} type="image/png" />
+          <img
+            src={`/images/og/${tip.slug}-thumb.png`}
+            onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = `/images/og/${tip.slug}.svg`; }}
+            alt={tip.title}
+            className="w-full h-40 object-cover rounded-md mb-4"
+          />
+        </picture>
         <div className="flex items-start gap-4">
           <Icon className="text-primary text-3xl flex-shrink-0 mt-1" />
           <div className="flex-1">
@@ -73,18 +48,38 @@ const Blog = () => {
             <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary transition">
               {tip.title}
             </h3>
-            <p className="text-gray-400 text-sm mb-4">
-              {tip.description}
+            <p className="text-gray-400 text-sm mb-2">
+              {truncateText(tip.description || (tip.content && tip.content[0]) || '', 140)}
             </p>
-            <div className="text-xs text-gray-500 space-y-1">
-              {tip.content.split(' • ').map((item, i) => (
-                item && <p key={i}>✓ {item}</p>
-              ))}
+
+            <div className="text-xs text-gray-500 mb-3">
+              <span className="mr-2">Creado por <strong>{tip.author}</strong></span>
+              <span className="mr-2">· {tip.date}</span>
+              <span className="text-gray-400">· {tip.locations && tip.locations.slice(0,2).join(', ')}{tip.locations && tip.locations.length>2?' ...':''}</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              {/* WhatsApp CTA - reemplazar +595XXXXXXXXX por el número real en config si se desea */}
+              <a
+                href={`https://wa.me/${CONTACT_INFO.whatsapp}?text=${encodeURIComponent(`Hola DigitalFox, tengo una consulta sobre: ${tip.title}`)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold transition duration-200 shadow"
+              >
+                Escríbenos ahora
+              </a>
+              <a href={`#blog/${tip.slug}`} className="text-sm text-gray-400 hover:text-white">Leer más</a>
             </div>
           </div>
         </div>
       </div>
     );
+  };
+
+  const truncateText = (text, max) => {
+    if (!text) return '';
+    if (text.length <= max) return text;
+    return text.slice(0, max).trim().replace(/[,\s]+$/, '') + '...';
   };
 
   return (

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import BlogPage from './pages/BlogPage';
 import FaqPage from './pages/FaqPage';
+import BlogPost from './pages/BlogPost';
 import FloatingCTA from './components/FloatingCTA';
 import './index.css';
 
@@ -12,14 +13,18 @@ import './index.css';
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
-  // Detectar cambios en la URL (hash routing)
+  // Detectar cambios en la URL (hash routing) y soportar posts individuales: #blog/<slug>
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash.slice(1);
+      let hash = window.location.hash.slice(1);
+      // eliminar barras iniciales si existieran
+      hash = hash.replace(/^\/+/, '');
       if (hash === 'blogs') {
         setCurrentPage('blogs');
       } else if (hash === 'faq') {
         setCurrentPage('faq');
+      } else if (hash.startsWith('blog/')) {
+        setCurrentPage('post');
       } else {
         setCurrentPage('home');
       }
@@ -67,7 +72,9 @@ function App() {
 
   return (
     <>
-      {currentPage === 'blogs' ? (
+      {currentPage === 'post' ? (
+        <BlogPost />
+      ) : currentPage === 'blogs' ? (
         <BlogPage />
       ) : currentPage === 'faq' ? (
         <FaqPage />
